@@ -1,0 +1,32 @@
+{
+  "name": "react-router-native-button",
+  "version": "1.0.0",
+  "description": "React Native's button combined with React Router's Link",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.40",
+    "react-router": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CodeKoalas/react-router-native-button.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "react-native"
+  ],
+  "author": {
+    "name": "Donnie West",
+    "email": "me@donniewest.com",
+    "url": "https://donniewest.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeKoalas/react-router-native-button/issues"
+  },
+  "homepage": "https://github.com/CodeKoalas/react-router-native-button#readme"
+}
