@@ -89,4 +89,5 @@ When true, clicking the button will replace the current entry in the history sta
 ## Credits
 
 [React Native](https://github.com/facebook/react-native) for the Button code
+
 [React Router](https://github.com/ReactTraining/react-router) for the Link code that's used here
