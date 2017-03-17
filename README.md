@@ -51,12 +51,6 @@ If true, disable all interactions for this component.
 ```
 
 ```
-onPress: () => any 
-
-Handler to be called when the user taps the button
-```
-
-```
 testID?: ?string 
 
 Used to locate this view in end-to-end tests.
