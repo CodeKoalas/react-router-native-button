@@ -55,12 +55,6 @@ const styles = StyleSheet.create({
   }),
 });
 
-const buttonStyles = [styles.button];
-const textStyles = [styles.text];
-const Touchable = Platform.OS === 'android'
-  ? TouchableNativeFeedback
-  : TouchableOpacity;
-
 function RouterButton(
   {
     accessibilityLabel,
@@ -72,6 +66,15 @@ function RouterButton(
     to,
   },
 ) {
+
+  const buttonStyles = [styles.button];
+  const textStyles = [styles.text];
+
+  const Touchable = Platform.OS === 'android'
+  ? TouchableNativeFeedback
+  : TouchableOpacity;
+
+
   if (color && Platform.OS === 'ios') {
     textStyles.push({
       color,
