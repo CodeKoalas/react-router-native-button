@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from "react";
 import {
   ColorPropType,
   Platform,
@@ -6,13 +6,13 @@ import {
   Text,
   TouchableNativeFeedback,
   TouchableOpacity,
-  View,
-} from 'react-native';
-import { Link } from 'react-router-native';
+  View
+} from "react-native";
+import { Link } from "react-router-native";
 
-let defaultBlue = '#2196F3';
-if (Platform.OS === 'ios') {
-  defaultBlue = '#0C42FD';
+let defaultBlue = "#2196F3";
+if (Platform.OS === "ios") {
+  defaultBlue = "#0C42FD";
 }
 
 const styles = StyleSheet.create({
@@ -21,79 +21,73 @@ const styles = StyleSheet.create({
     android: {
       elevation: 4,
       backgroundColor: defaultBlue,
-      borderRadius: 2,
-    },
+      borderRadius: 2
+    }
   }),
   text: Platform.select({
     ios: {
       color: defaultBlue,
-      textAlign: 'center',
+      textAlign: "center",
       padding: 8,
-      fontSize: 18,
+      fontSize: 18
     },
     android: {
-      textAlign: 'center',
-      color: 'white',
+      textAlign: "center",
+      color: "white",
       padding: 8,
-      fontWeight: '500',
-    },
+      fontWeight: "500"
+    }
   }),
   buttonDisabled: Platform.select({
     ios: {},
     android: {
       elevation: 0,
-      backgroundColor: '#dfdfdf',
-    },
+      backgroundColor: "#dfdfdf"
+    }
   }),
   textDisabled: Platform.select({
     ios: {
-      color: '#cdcdcd',
+      color: "#cdcdcd"
     },
     android: {
-      color: '#a1a1a1',
-    },
-  }),
+      color: "#a1a1a1"
+    }
+  })
 });
 
-function RouterButton(
-  {
-    accessibilityLabel,
-    color,
-    title,
-    disabled,
-    testID,
-    replace,
-    to,
-  },
-) {
-
+function RouterButton({
+  accessibilityLabel,
+  color,
+  title,
+  disabled,
+  testID,
+  replace,
+  to
+}) {
   const buttonStyles = [styles.button];
   const textStyles = [styles.text];
 
-  const Touchable = Platform.OS === 'android'
-  ? TouchableNativeFeedback
-  : TouchableOpacity;
+  const Touchable =
+    Platform.OS === "android" ? TouchableNativeFeedback : TouchableOpacity;
 
-
-  if (color && Platform.OS === 'ios') {
+  if (color && Platform.OS === "ios") {
     textStyles.push({
-      color,
+      color
     });
   } else if (color) {
     buttonStyles.push({
-      backgroundColor: color,
+      backgroundColor: color
     });
   }
   if (disabled) {
     buttonStyles.push(styles.buttonDisabled);
     textStyles.push(styles.textDisabled);
   }
-  const formattedTitle = Platform.OS === 'android'
-    ? title.toUpperCase()
-    : title;
-  const accessibilityTraits = ['button'];
+  const formattedTitle =
+    Platform.OS === "android" ? title.toUpperCase() : title;
+  const accessibilityTraits = ["button"];
   if (disabled) {
-    accessibilityTraits.push('disabled');
+    accessibilityTraits.push("disabled");
   }
 
   function TouchableWithProps({ children, onPress }) {
@@ -113,7 +107,7 @@ function RouterButton(
 
   TouchableWithProps.propTypes = {
     onPress: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired
   };
 
   return (
@@ -153,10 +147,7 @@ RouterButton.propTypes = {
   /**
      * Used to determine which path to link to
      */
-  to: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object
-  ]),
+  to: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 RouterButton.defaultProps = {
@@ -164,7 +155,7 @@ RouterButton.defaultProps = {
   disabled: false,
   testID: null,
   color: null,
-  accessibilityLabel: null,
+  accessibilityLabel: null
 };
 
 export default RouterButton;
